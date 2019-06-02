@@ -2,7 +2,7 @@
   "name": "comic-detail-web",
   "version": "0.1.0",
   "private": true,
-  "description": "A GraphQL server experiment querying the D&amp;D open api: http://www.dnd5eapi.co/",
+  "description": "A React app that catalogues superheroes",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/BritneyS/comic-web-detail.git"
