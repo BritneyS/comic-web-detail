@@ -2,6 +2,17 @@
   "name": "comic-detail-web",
   "version": "0.1.0",
   "private": true,
+  "description": "A GraphQL server experiment querying the D&amp;D open api: http://www.dnd5eapi.co/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BritneyS/comic-web-detail.git"
+  },
+  "author": "Britney Smith",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/BritneyS/comic-web-detail/issues"
+  },
+  "homepage": "https://github.com/BritneyS/comic-web-detail#readme",
   "dependencies": {
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
