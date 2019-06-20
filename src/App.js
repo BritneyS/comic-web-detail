@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Box, Button, Heading, Grommet } from 'grommet';
 import { Notification } from 'grommet-icons';
 
@@ -30,18 +30,21 @@ const AppBar = (props) => (
 );
 
 function App() {
+  const [showSideBar, setShowSidebar] = useState(false);
+
   return (
     <Grommet theme={theme} full>
       <Box fill>
         <AppBar>
           <Heading level='3' margin='none'>My App</Heading>
-          <Button icon={<Notification />} onClick={() => {}} />
+          <Button icon={<Notification />} onClick={() => setShowSidebar(!showSideBar)} />
         </AppBar>
         <Box direction='row' flex overflow={{ horizontal: 'hidden' }}>
           <Box flex align='center' justify='center'>
             app body
           </Box>
-          <Box
+          {showSideBar && (
+            <Box
             width='medium'
             background='light-2'
             elevation='small'
@@ -50,6 +53,7 @@ function App() {
           >
             sidebar
           </Box>
+          )}
         </Box>
       </Box>
     </Grommet>
