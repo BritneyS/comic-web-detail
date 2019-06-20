@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Box, Button, Heading, Grommet } from 'grommet';
+import { Box, Button, Collapsible, Heading, Grommet } from 'grommet';
 import { Notification } from 'grommet-icons';
 
 const theme = {
@@ -44,15 +44,18 @@ function App() {
             app body
           </Box>
           {showSideBar && (
-            <Box
-            width='medium'
-            background='light-2'
-            elevation='small'
-            align='center'
-            justify='center'
-          >
-            sidebar
-          </Box>
+            <Collapsible direction="horizontal" open={showSideBar}>
+              <Box
+                flex
+                width='medium'
+                background='light-2'
+                elevation='small'
+                align='center'
+                justify='center'
+            >
+              sidebar
+            </Box>
+          </Collapsible>
           )}
         </Box>
       </Box>
