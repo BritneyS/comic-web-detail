@@ -25,6 +25,12 @@ const heroes = [
         image: {
             url: '/images/deadpool.jpg'
         }
+    },
+    {
+        name: 'wonder woman',
+        image: {
+            url: '/images/wonderwoman.jpg'
+        }
     }
 ];
 
@@ -46,12 +52,19 @@ const villains = [
         image: {
             url: '/images/thepenguin.jpeg'
         }
+    },
+    {
+        name: 'thanos',
+        image: {
+            url: '/images/thanos.png'
+        }
     }
 ];
 
 const HeroVillianTabs = (props) => (
     <Tabs height='medium' flex='grow' alignSelf='left'>
         <Tab title='Heroes'>
+            <Box direction='row'>
             {heroes.map (hero => {
                 return (
                     <Box
@@ -68,8 +81,10 @@ const HeroVillianTabs = (props) => (
                 </Box>
                 );
             })}
+            </Box>
         </Tab>
         <Tab title='Villains'>
+            <Box direction='row'>
             {villains.map (villain => {
                 return (
                     <Box
@@ -86,6 +101,7 @@ const HeroVillianTabs = (props) => (
                 </Box>
                 );
             })}
+            </Box>
         </Tab>
     </Tabs>
 );
