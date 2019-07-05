@@ -4,31 +4,48 @@ import {
   Tab,
   Tabs,
   Text,
-// eslint-disable-next-line
   Image 
 } from 'grommet';
 
 const heroes = [
     {
-        name: 'batman'
+        name: 'batman',
+        image: {
+            url: '/images/batman.jpg'
+        }
     },
     {
-        name: 'superman'
+        name: 'superman',
+        image: {
+            url: '/images/superman.jpg'
+        }
     },
     {
-        name: 'deadpool'
+        name: 'deadpool',
+        image: {
+            url: '/images/deadpool.jpg'
+        }
     }
 ];
 
 const villains = [
     {
-        name: 'joker'
+        name: 'joker',
+        image: {
+            url: '/images/joker.jpg'
+        }
     },
     {
-        name: 'mr. freeze'
+        name: 'mr. freeze',
+        image: {
+            url: '/images/mrfreeze.png'
+        }
     },
     {
-        name: 'the penguin'
+        name: 'the penguin',
+        image: {
+            url: '/images/thepenguin.jpeg'
+        }
     }
 ];
 
@@ -40,8 +57,14 @@ const HeroVillianTabs = (props) => (
                     <Box
                     margin='small'
                     pad='small'
+                    style={{width:'100%', height: 150}}
                 >
-                    <Text>{hero.name}</Text>
+                    <Image
+                        fit='contain'
+                        alignSelf='center'
+                        src={hero.image.url}
+                    />
+                    <Text alignSelf='center'>{hero.name}</Text>
                 </Box>
                 );
             })}
@@ -52,8 +75,14 @@ const HeroVillianTabs = (props) => (
                     <Box
                     margin='small'
                     pad='small'
+                    style={{width:'100%', height: 150}}
                 >
-                    <Text>{villain.name}</Text>
+                    <Image
+                        fit='contain'
+                        alignSelf='center'
+                        src={villain.image.url}
+                    />
+                    <Text alignSelf='center'>{villain.name}</Text>
                 </Box>
                 );
             })}
