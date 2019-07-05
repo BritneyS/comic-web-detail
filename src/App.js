@@ -10,20 +10,7 @@ import {
 } from 'grommet';
 import { FormClose, Notification } from 'grommet-icons';
 import theme from '../src/ui/theme';
-
-const AppBar = (props) => (
-  <Box
-    tag='header'
-    direction='row'
-    align='center'
-    justify='between'
-    background='brand'
-    pad={{ left: 'medium', right: 'small', vertical: 'small' }}
-    elevation='medium'
-    style={{ zIndex: '1' }}
-    {...props}
-  />
-);
+import AppBar from '../src/ui/AppBar'; 
 
 function App() {
   const [showSideBar, setShowSidebar] = useState(false);
