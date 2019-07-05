@@ -10,7 +10,8 @@ import {
 } from 'grommet';
 import { FormClose, Notification } from 'grommet-icons';
 import theme from '../src/ui/theme';
-import AppBar from '../src/ui/AppBar'; 
+import AppBar from '../src/ui/AppBar';
+import HeroVillainTabs from '../src/ui/HeroVillianTabs';
 
 function App() {
   const [showSideBar, setShowSidebar] = useState(false);
@@ -27,6 +28,7 @@ function App() {
             <Box direction='row' flex overflow={{ horizontal: 'hidden' }}>
               <Box flex align='center' justify='center'>
                 app body
+                <HeroVillainTabs />
               </Box>
               {(!showSideBar || size !== 'small') ? (
                 <Collapsible direction="horizontal" open={showSideBar}>
