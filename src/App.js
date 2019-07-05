@@ -9,19 +9,7 @@ import {
   ResponsiveContext 
 } from 'grommet';
 import { FormClose, Notification } from 'grommet-icons';
-
-const theme = {
-  global: {
-    colors: {
-      brand: '#f44283'
-    },
-    font: {
-      family: 'Roboto',
-      size: '14px',
-      height: '20px'
-    },
-  },
-};
+import theme from '../src/ui/theme';
 
 const AppBar = (props) => (
   <Box
