@@ -26,7 +26,6 @@ function App() {
             </AppBar>
             <Box direction='row' flex overflow={{ horizontal: 'hidden' }}>
               <Box flex align='center' justify='center'>
-                app body
                 <HeroVillainTabs
                   showSideBar={() => setShowSidebar(!showSideBar)}
                 />
