@@ -8,7 +8,7 @@ import {
   Layer,
   ResponsiveContext 
 } from 'grommet';
-import { FormClose, Notification } from 'grommet-icons';
+import { FormClose } from 'grommet-icons';
 import theme from '../src/ui/theme';
 import AppBar from '../src/ui/AppBar';
 import HeroVillainTabs from '../src/ui/HeroVillianTabs';
@@ -23,7 +23,6 @@ function App() {
           <Box fill>
             <AppBar>
               <Heading level='3' margin='none'>HeroDex</Heading>
-              <Button icon={<Notification />} onClick={() => setShowSidebar(!showSideBar)} />
             </AppBar>
             <Box direction='row' flex overflow={{ horizontal: 'hidden' }}>
               <Box flex align='center' justify='center'>
