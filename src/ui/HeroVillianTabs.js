@@ -4,7 +4,8 @@ import {
   Tab,
   Tabs,
   Text,
-  Image 
+  Image,
+  Button
 } from 'grommet';
 
 const heroes = [
@@ -61,49 +62,67 @@ const villains = [
     }
 ];
 
-const HeroVillianTabs = (props) => (
-    <Tabs height='medium' flex='grow' alignSelf='left'>
-        <Tab title='Heroes'>
-            <Box direction='row'>
-            {heroes.map (hero => {
-                return (
-                    <Box
-                    margin='small'
-                    pad='small'
-                    style={{width:'100%', height: 150}}
-                >
-                    <Image
-                        fit='contain'
-                        alignSelf='center'
-                        src={hero.image.url}
-                    />
-                    <Text alignSelf='center'>{hero.name}</Text>
-                </Box>
-                );
-            })}
-            </Box>
-        </Tab>
-        <Tab title='Villains'>
-            <Box direction='row'>
-            {villains.map (villain => {
-                return (
-                    <Box
-                    margin='small'
-                    pad='small'
-                    style={{width:'100%', height: 150}}
-                >
-                    <Image
-                        fit='contain'
-                        alignSelf='center'
-                        src={villain.image.url}
-                    />
-                    <Text alignSelf='center'>{villain.name}</Text>
-                </Box>
-                );
-            })}
-            </Box>
-        </Tab>
-    </Tabs>
-);
+function HeroVillianTabs(props) {
+    const imageStyle = {
+        width:'100%',
+        height: 150
+    };
 
+    return (
+        <Tabs height='medium' flex='grow' alignSelf='start'>
+            <Tab title='Heroes'>
+                <Box direction='row'>
+                {heroes.map ((hero, index) => {
+                    return (
+                        <Box
+                        key={index}
+                        margin='small'
+                        pad='small'
+                        >
+                        <Button
+                            icon={
+                                <Image
+                                    fit='contain'
+                                    alignSelf='center'
+                                    src={hero.image.url}
+                                    style={imageStyle}
+                                />
+                            }
+                            onClick={props.showSideBar}
+                        ></Button>
+                        <Text alignSelf='center'>{hero.name}</Text>
+                    </Box>
+                    );
+                })}
+                </Box>
+            </Tab>
+            <Tab title='Villains'>
+                <Box direction='row'>
+                {villains.map ((villain, index) => {
+                    return (
+                        <Box
+                            key={index}
+                            margin='small'
+                            pad='small'
+                        >
+                        <Button
+                            icon={
+                                <Image
+                                    fit='contain'
+                                    alignSelf='center'
+                                    src={villain.image.url}
+                                    style={imageStyle}
+                                />
+                            }
+                            onClick={props.showSideBar}
+                        ></Button>
+                        <Text alignSelf='center'>{villain.name}</Text>
+                    </Box>
+                    );
+                })}
+                </Box>
+            </Tab>
+        </Tabs>
+    );
+}
 export default HeroVillianTabs;

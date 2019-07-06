@@ -22,13 +22,15 @@ function App() {
         {size => (
           <Box fill>
             <AppBar>
-              <Heading level='3' margin='none'>My App</Heading>
+              <Heading level='3' margin='none'>HeroDex</Heading>
               <Button icon={<Notification />} onClick={() => setShowSidebar(!showSideBar)} />
             </AppBar>
             <Box direction='row' flex overflow={{ horizontal: 'hidden' }}>
               <Box flex align='center' justify='center'>
                 app body
-                <HeroVillainTabs />
+                <HeroVillainTabs
+                  showSideBar={() => setShowSidebar(!showSideBar)}
+                />
               </Box>
               {(!showSideBar || size !== 'small') ? (
                 <Collapsible direction="horizontal" open={showSideBar}>
