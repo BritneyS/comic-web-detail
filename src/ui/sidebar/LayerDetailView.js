@@ -34,7 +34,6 @@ function LayerDetailView(props) {
                 align='center'
                 justify='center'
             >
-            sidebar
             <Image
                 fit='contain'
                 alignSelf='center'
