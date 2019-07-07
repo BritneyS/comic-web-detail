@@ -1,17 +1,15 @@
 import React, { useState } from 'react';
 import { 
-  Box, 
-  Button, 
-  Collapsible,
-  Grommet, 
-  Heading, 
-  Layer,
-  ResponsiveContext 
+  Box,
+  Grommet,
+  Heading,
+  ResponsiveContext
 } from 'grommet';
-import { FormClose } from 'grommet-icons';
 import theme from '../src/ui/theme';
 import AppBar from '../src/ui/AppBar';
 import HeroVillainTabs from '../src/ui/HeroVillianTabs';
+import CollapsibleDetailView from '../src/ui/sidebar/CollapsibleDetailView';
+import LayerDetailView from '../src/ui/sidebar/LayerDetailView';
 
 function App() {
   const [showSideBar, setShowSidebar] = useState(false);
@@ -31,41 +29,9 @@ function App() {
                 />
               </Box>
               {(!showSideBar || size !== 'small') ? (
-                <Collapsible direction="horizontal" open={showSideBar}>
-                  <Box
-                    flex
-                    width='medium'
-                    background='light-2'
-                    elevation='small'
-                    align='center'
-                    justify='center'
-                >
-                  sidebar
-                </Box>
-              </Collapsible>
+                <CollapsibleDetailView showSideBar={showSideBar} />
               ) : (
-                <Layer>
-                  <Box
-                    background='light-2'
-                    tag='header'
-                    justify='end'
-                    align='center'
-                    direction='row'
-                  >
-                    <Button
-                      icon={<FormClose />}
-                      onClick={() => setShowSidebar(false)}
-                    />
-                  </Box>
-                  <Box
-                    fill
-                    background='light-2'
-                    align='center'
-                    justify='center'
-                  >
-                    sidebar
-                  </Box>
-                </Layer>
+                <LayerDetailView setShowSidebar={() => setShowSidebar(false)} />
               )}
             </Box>
           </Box>
