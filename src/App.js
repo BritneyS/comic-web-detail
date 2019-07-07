@@ -8,34 +8,10 @@ import {
   Layer,
   ResponsiveContext 
 } from 'grommet';
-import { FormClose, Notification } from 'grommet-icons';
-
-const theme = {
-  global: {
-    colors: {
-      brand: '#f44283'
-    },
-    font: {
-      family: 'Roboto',
-      size: '14px',
-      height: '20px'
-    },
-  },
-};
-
-const AppBar = (props) => (
-  <Box
-    tag='header'
-    direction='row'
-    align='center'
-    justify='between'
-    background='brand'
-    pad={{ left: 'medium', right: 'small', vertical: 'small' }}
-    elevation='medium'
-    style={{ zIndex: '1' }}
-    {...props}
-  />
-);
+import { FormClose } from 'grommet-icons';
+import theme from '../src/ui/theme';
+import AppBar from '../src/ui/AppBar';
+import HeroVillainTabs from '../src/ui/HeroVillianTabs';
 
 function App() {
   const [showSideBar, setShowSidebar] = useState(false);
@@ -46,12 +22,13 @@ function App() {
         {size => (
           <Box fill>
             <AppBar>
-              <Heading level='3' margin='none'>My App</Heading>
-              <Button icon={<Notification />} onClick={() => setShowSidebar(!showSideBar)} />
+              <Heading level='3' margin='none'>HeroDex</Heading>
             </AppBar>
             <Box direction='row' flex overflow={{ horizontal: 'hidden' }}>
               <Box flex align='center' justify='center'>
-                app body
+                <HeroVillainTabs
+                  showSideBar={() => setShowSidebar(!showSideBar)}
+                />
               </Box>
               {(!showSideBar || size !== 'small') ? (
                 <Collapsible direction="horizontal" open={showSideBar}>
