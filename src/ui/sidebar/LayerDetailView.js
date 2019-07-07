@@ -18,7 +18,7 @@ function LayerDetailView(props) {
             >
             <Button
                 icon={<FormClose />}
-                onClick={props.setShowSidebar}
+                onClick={props.closeSidebar}
             />
             </Box>
             <Box
