@@ -8,60 +8,6 @@ import {
   Button
 } from 'grommet';
 
-const heroes = [
-    {
-        name: 'batman',
-        image: {
-            url: '/images/batman.jpg'
-        }
-    },
-    {
-        name: 'superman',
-        image: {
-            url: '/images/superman.jpg'
-        }
-    },
-    {
-        name: 'deadpool',
-        image: {
-            url: '/images/deadpool.jpg'
-        }
-    },
-    {
-        name: 'wonder woman',
-        image: {
-            url: '/images/wonderwoman.jpg'
-        }
-    }
-];
-
-const villains = [
-    {
-        name: 'joker',
-        image: {
-            url: '/images/joker.jpg'
-        }
-    },
-    {
-        name: 'mr. freeze',
-        image: {
-            url: '/images/mrfreeze.png'
-        }
-    },
-    {
-        name: 'the penguin',
-        image: {
-            url: '/images/thepenguin.jpeg'
-        }
-    },
-    {
-        name: 'thanos',
-        image: {
-            url: '/images/thanos.png'
-        }
-    }
-];
-
 function HeroVillianTabs(props) {
     const imageStyle = {
         width:'100%',
@@ -72,7 +18,7 @@ function HeroVillianTabs(props) {
         <Tabs height='medium' flex='grow' alignSelf='start'>
             <Tab title='Heroes'>
                 <Box direction='row'>
-                {heroes.map ((hero, index) => {
+                {props.characters.heroes.map ((hero, index) => {
                     return (
                         <Box
                         key={index}
@@ -98,7 +44,7 @@ function HeroVillianTabs(props) {
             </Tab>
             <Tab title='Villains'>
                 <Box direction='row'>
-                {villains.map ((villain, index) => {
+                {props.characters.villains.map ((villain, index) => {
                     return (
                         <Box
                             key={index}
