@@ -10,7 +10,7 @@ import AppBar from '../src/ui/AppBar';
 import HeroVillainTabs from '../src/ui/HeroVillianTabs';
 import CollapsibleDetailView from '../src/ui/sidebar/CollapsibleDetailView';
 import LayerDetailView from '../src/ui/sidebar/LayerDetailView';
-// TODO: move hero and villain objects to App.js + detail objects to pass as props
+// TODO: Use redux to track/update state from main view to detail view
 const characters = {
   heroes: [
     {

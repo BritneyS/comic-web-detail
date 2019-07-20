@@ -34,14 +34,14 @@ function LayerDetailView(props) {
                 align='center'
                 justify='center'
             >
-            <Image
-                fit='contain'
-                alignSelf='center'
-                src={props.heroDetails[0].image.url}
-                style={sidebarImageStyle}
-            />
-            <Text>{props.heroDetails[0].name}</Text>
-            <Text>{props.heroDetails[0].publisher}</Text>
+                <Image
+                    fit='contain'
+                    alignSelf='center'
+                    src={props.heroDetails[0].image.url}
+                    style={sidebarImageStyle}
+                />
+                <Text>{props.heroDetails[0].name}</Text>
+                <Text>{props.heroDetails[0].publisher}</Text>
             </Box>
         </Layer>
     );
