@@ -6,8 +6,26 @@ const initialState = {
     publisher: ""
 }
 
+const data = {
+    name: 'superman',
+    image: {
+        url: '/images/superman.jpg'
+    },
+    publisher: 'DC Comics'
+}
 
-export function reducer(state = initialState, action) {
+const action = {
+    type: "UPDATE_DETAIL",
+    payload: data
+}
+
+export function characterReducer(state = initialState, action) {
     console.log('reducer', state, action);
-    return state;
+    let newState = { ...state };
+    switch (action.type) {
+        case 'UPDATE_DETAIL':
+            return newstate = { ...state, ...action.payload };
+        default:
+            return newState
+    }
 }
