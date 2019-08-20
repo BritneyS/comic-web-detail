@@ -1,23 +1,9 @@
-const data = {
-    name: 'superman',
-    image: {
-        url: '/images/superman.jpg'
-    },
-    publisher: 'DC Comics'
-}
+const UPDATE_DETAIL = "UPDATE_DETAIL"
 
-/*
-Intended action:
-
-const action = {
-    type: "UPDATE_DETAIL",
-    payload: data
-}
-*/
-
-export function actionCreator(actionType) {
+export function actionCreator(character) {
+    console.log(`🌈 Action creator called: ${character.name}`)
     return {
-        type: actionType,
-        payload: data
+        type: UPDATE_DETAIL,
+        payload: character
     }
 }
