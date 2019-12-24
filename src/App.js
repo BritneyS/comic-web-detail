@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { 
   Box,
   Grommet,
@@ -86,13 +86,6 @@ function App() {
         image: state.image,
         publisher: state.publisher
     })
-  );
-
-  useEffect(
-    () => {
-      console.log(`🦸🏾‍♀️Character: ${characterState.name}`);
-    },
-    [characterState]
   );
 
   return (
