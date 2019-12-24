@@ -27,11 +27,11 @@ function CollapsibleDetailView(props) {
                 <Image
                     fit='contain'
                     alignSelf='center'
-                    src={props.heroDetails[0].image.url}
+                    src={props.character.image.url}
                     style={sidebarImageStyle}
                 />
-                <Text>{props.heroDetails[0].name}</Text>
-                <Text>{props.heroDetails[0].publisher}</Text>
+                <Text>{props.character.publisher}</Text>
+                <Text>{props.character.name}</Text>
             </Box>
         </Collapsible>
     );

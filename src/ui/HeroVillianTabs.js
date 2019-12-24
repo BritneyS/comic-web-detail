@@ -7,12 +7,17 @@ import {
   Image,
   Button
 } from 'grommet';
+import { actionCreator } from '../redux/actions';
+import { useDispatch } from 'react-redux';
 
 function HeroVillianTabs(props) {
     const imageStyle = {
         width:'100%',
         height: 150
     };
+
+    // useDispatch to get dispatch to call action creator
+    const dispatch = useDispatch();
 
     return (
         <Tabs height='medium' flex='grow' alignSelf='start'>
@@ -34,7 +39,10 @@ function HeroVillianTabs(props) {
                                     style={imageStyle}
                                 />
                             }
-                            onClick={props.showSideBar}
+                            onClick={() => {
+                                props.showSideBar();
+                                dispatch(actionCreator(hero));
+                            }}
                         ></Button>
                         <Text alignSelf='center'>{hero.name}</Text>
                     </Box>
@@ -60,7 +68,10 @@ function HeroVillianTabs(props) {
                                     style={imageStyle}
                                 />
                             }
-                            onClick={props.showSideBar}
+                            onClick={() => {
+                                props.showSideBar();
+                                dispatch(actionCreator(villain));
+                            }}
                         ></Button>
                         <Text alignSelf='center'>{villain.name}</Text>
                     </Box>
@@ -71,4 +82,5 @@ function HeroVillianTabs(props) {
         </Tabs>
     );
 }
+
 export default HeroVillianTabs;

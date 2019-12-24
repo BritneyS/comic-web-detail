@@ -10,32 +10,38 @@ import AppBar from '../src/ui/AppBar';
 import HeroVillainTabs from '../src/ui/HeroVillianTabs';
 import CollapsibleDetailView from '../src/ui/sidebar/CollapsibleDetailView';
 import LayerDetailView from '../src/ui/sidebar/LayerDetailView';
-// TODO: Use redux to track/update state from main view to detail view
+import { useSelector } from 'react-redux';
+
+// Goal: Use redux to track/update state from main view to detail view
 const characters = {
   heroes: [
     {
         name: 'batman',
         image: {
             url: '/images/batman.jpg'
-        }
+        },
+        publisher: 'DC Comics'
     },
     {
         name: 'superman',
         image: {
             url: '/images/superman.jpg'
-        }
+        },
+        publisher: 'DC Comics'
     },
     {
         name: 'deadpool',
         image: {
             url: '/images/deadpool.jpg'
-        }
+        },
+        publisher: 'Marvel Comics'
     },
     {
         name: 'wonder woman',
         image: {
             url: '/images/wonderwoman.jpg'
-        }
+        },
+        publisher: 'DC Comics'
     }
   ],
   villains: [
@@ -43,92 +49,44 @@ const characters = {
         name: 'joker',
         image: {
             url: '/images/joker.jpg'
-        }
+        },
+        publisher: 'DC Comics'
     },
     {
         name: 'mr. freeze',
         image: {
             url: '/images/mrfreeze.png'
-        }
+        },
+        publisher: 'DC Comics'
     },
     {
         name: 'the penguin',
         image: {
             url: '/images/thepenguin.jpeg'
-        }
+        },
+        publisher: 'DC Comics'
     },
     {
         name: 'thanos',
         image: {
             url: '/images/thanos.png'
-        }
+        },
+        publisher: 'Marvel Comics'
     }
   ]
 };
-const heroDetails = [
-  {
-      name: 'batman',
-      image: {
-          url: '/images/batman.jpg'
-      },
-      publisher: 'DC Comics'
-  },
-  {
-      name: 'superman',
-      image: {
-          url: '/images/superman.jpg'
-      },
-      publisher: 'DC Comics'
-  },
-  {
-      name: 'deadpool',
-      image: {
-          url: '/images/deadpool.jpg'
-      },
-      publisher: 'Marvel Comics'
-  },
-  {
-      name: 'wonder woman',
-      image: {
-          url: '/images/wonderwoman.jpg'
-      },
-      publisher: 'DC Comics'
-  }
-];
-
-const villainDetails = [
-  {
-      name: 'joker',
-      image: {
-          url: '/images/joker.jpg'
-      },
-      publisher: 'DC Comics'
-  },
-  {
-      name: 'mr. freeze',
-      image: {
-          url: '/images/mrfreeze.png'
-      },
-      publisher: 'DC Comics'
-  },
-  {
-      name: 'the penguin',
-      image: {
-          url: '/images/thepenguin.jpeg'
-      },
-      publisher: 'DC Comics'
-  },
-  {
-      name: 'thanos',
-      image: {
-          url: '/images/thanos.png'
-      },
-      publisher: 'Marvel Comics'
-  }
-];
 
 function App() {
   const [showSideBar, setShowSidebar] = useState(false);
+
+  // useSelector to get state from store
+  const characterState = useSelector(
+    state => ({
+        name: state.name,
+        image: state.image,
+        publisher: state.publisher
+    })
+  );
 
   return (
     <Grommet theme={theme} full>
@@ -148,14 +106,12 @@ function App() {
               {(!showSideBar || size !== 'small') ? (
                 <CollapsibleDetailView
                   showSideBar={showSideBar}
-                  heroDetails={heroDetails}
-                  villainDetails={villainDetails}
+                  character={characterState}
                 />
               ) : (
                 <LayerDetailView
                   closeSidebar={() => setShowSidebar(false)}
-                  heroDetails={heroDetails}
-                  villainDetails={villainDetails}
+                  character={characterState}
                 />
               )}
             </Box>
